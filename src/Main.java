@@ -26,7 +26,8 @@ public class Main {
             scanner.nextLine();
 
             String nombre = "";
-            double sueldo = 0; if (opcion != 0){
+            double sueldo = 0;
+                if (opcion != 0){
                 System.out.println("Ponga un nombre: ");
                 nombre = scanner.nextLine();
 
