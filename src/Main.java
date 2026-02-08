@@ -25,61 +25,60 @@ public class Main {
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
-            String nombre = "";
+
+
             double sueldo = 0;
-                if (opcion != 0){
-                System.out.println("Ponga un nombre: ");
-                nombre = scanner.nextLine();
+            if (opcion > 0) {
+
+               String nombre = Utils.pedirNombreValido(scanner);
 
                 if (opcion == 4)
                     System.out.println("Ponga el valor de su hora: ");
-                else{
+                else {
                     System.out.println("Ponga el sueldo: ");
                     sueldo = scanner.nextDouble();
                 }
+
+                switch (opcion) {
+                    case 1:
+                        listaEmpleado[contador] = new Empleado(nombre, sueldo);
+                        contador++;
+                        break;
+                    case 2:
+                        System.out.println("Inglese el bono del gerente: ");
+                        double bono = scanner.nextDouble();
+                        listaEmpleado[contador] = new Gerente(nombre, sueldo, bono);
+                        contador++;
+                        break;
+                    case 3:
+                        System.out.println("Inglese la venta del vendedor: ");
+                        double ventas = scanner.nextDouble();
+                        listaEmpleado[contador] = new Vendedor(nombre, sueldo, ventas);
+                        contador++;
+                        break;
+                    case 4:
+                        double valorHora = scanner.nextDouble();
+                        System.out.println("Cuantas horas has trabajado? ");
+                        double horasTrabajadas = scanner.nextDouble();
+                        listaEmpleado[contador] = new Freelancer(nombre, horasTrabajadas, valorHora);
+                        contador++;
+                        break;
+                    default:
+                        System.out.println("Opcion mal!!");
+                        break;
+                }
+            }else{
+                System.out.println("finalizacion programa.");
             }
 
-            switch (opcion){
-                case 0:
-                    System.out.println("Adios! ");
-                    salir = true;
-                    break;
-                case 1:
-                    listaEmpleado[contador] = new Empleado(nombre, sueldo);
-                    contador++;
-                    break;
-                case 2:
-                    System.out.println("Inglese el bono del gerente: ");
-                    double bono = scanner.nextDouble();
-                    listaEmpleado[contador] = new Gerente(nombre, sueldo, bono);
-                    contador++;
-                    break;
-                case 3:
-                    System.out.println("Inglese la venta del vendedor: ");
-                    double ventas = scanner.nextDouble();
-                    listaEmpleado[contador] = new Vendedor(nombre, sueldo, ventas);
-                    contador++;
-                    break;
-                case 4:
-                    double valorHora = scanner.nextDouble();
-                    System.out.println("Cuantas horas has trabajado? ");
-                    double horasTrabajadas = scanner.nextDouble();
-                    listaEmpleado[contador] = new Freelancer(nombre, horasTrabajadas, valorHora);
-                    contador++;
-                    break;
-                default:
-                    System.out.println("Opcion mal!!");
-                    break;
+            System.out.println("=== Datos de empleados ===");
+
+            for (int i = 0; i < contador; i++) {
+                System.out.println();
+                System.out.println(listaEmpleado[i].toString());
+                System.out.println();
+                System.out.println("-----------------------------------");
             }
-        }
-
-        System.out.println("=== Datos de empleados ===");
-
-        for (int i = 0; i < contador; i++) {
-            System.out.println();
-            System.out.println(listaEmpleado[i].toString());
-            System.out.println();
-            System.out.println("-----------------------------------");
         }
     }
 }

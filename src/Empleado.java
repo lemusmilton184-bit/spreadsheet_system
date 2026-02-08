@@ -18,14 +18,7 @@ public class Empleado {
     }
 
     public void setNombre(String nombre) {
-        if (nombre == null || nombre.trim().isEmpty()){
-            this.nombre = NOMBRE_POR_DEFECTO;
-        }else if (!nombre.matches("!@##$%^&*1234567890")){
-            System.out.println("Alerta: El nombre no puede contener numeros ni caracteres especilales");
-        }else{
-            this.nombre = nombre;
-        }
-
+        this.nombre = nombre;
     }
 
     public double getSueldoBase() {
