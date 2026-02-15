@@ -25,18 +25,13 @@ public class Main {
             int opcion = scanner.nextInt();
             scanner.nextLine();
 
-
-
             double sueldo = 0;
             if (opcion > 0) {
-
                String nombre = Utils.pedirNombreValido(scanner);
-
                 if (opcion == 4)
                     System.out.println("Ponga el valor de su hora: ");
                 else {
-                    System.out.println("Ponga el sueldo: ");
-                    sueldo = scanner.nextDouble();
+                    sueldo = Utils.pedirNumeroValido(scanner);
                 }
 
                 switch (opcion) {

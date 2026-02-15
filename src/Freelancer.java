@@ -27,9 +27,9 @@ public class Freelancer extends Empleado {
     @Override
     public String toString() {
         return  "Nombre: " + getNombre() + '\n' +
-                "Valor de horas: " + getValorHora() +  '\n' +
+                "Valor de horas: $" + getValorHora() +  '\n' +
                 "horas trabajadas: " + getHorasTrabajadas() + '\n' +
-                "Sueldo total: " + getSueldo();
+                "Sueldo total: $" + getSueldo();
     }
 
 

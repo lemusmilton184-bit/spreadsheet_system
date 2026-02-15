@@ -20,8 +20,20 @@ public class Utils {
         return nombre;
     }
 
+    public static int pedirNumeroValido(Scanner leerNumero){
+        String numero = "";
+        boolean numeroValido = false;
 
+        while (!numeroValido){
+            System.out.println("Ponga un sueldo: ");
+            numero = leerNumero.nextLine();
 
-
-
+            if (numero.matches("[0-9]+")){
+                numeroValido = true;
+            }else{
+                System.out.println("Error: Solo se permite numero. ");
+            }
+        }
+        return Integer.parseInt(numero);
+    }
 }

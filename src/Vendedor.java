@@ -23,8 +23,8 @@ public class Vendedor extends Empleado{
     @Override
     public String toString() {
         return  "Nombre: " + getNombre() + '\n' +
-                "sueldo: " + getSueldoBase() + '\n' +
+                "sueldo: $" + getSueldoBase() + '\n' +
                 "Bono ventas: " + getVentas() +  '\n' +
-                "Sueldo Total: " + obtenerSueldo();
+                "Sueldo Total: $" + obtenerSueldo();
     }
 }

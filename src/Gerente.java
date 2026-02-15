@@ -25,8 +25,8 @@ public class Gerente extends Empleado{
     @Override
     public String toString() {
         return  "Nombre: " + getNombre() + '\n' +
-                "Sueldo: " + getSueldoBase() + '\n' +
+                "Sueldo: $" + getSueldoBase() + '\n' +
                 "Bono: " + getBono() + '\n' +
-                "Sueldo Total: " + (super.getSueldoBase() + getBono());
+                "Sueldo Total: $" + (super.getSueldoBase() + getBono());
     }
 }

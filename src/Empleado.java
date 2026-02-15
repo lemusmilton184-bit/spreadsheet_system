@@ -2,8 +2,9 @@ public class Empleado {
     private String nombre;
     private double sueldoBase;
 
-    private static final double SUELDO_MINIMO = 500;
-    private static final String NOMBRE_POR_DEFECTO = "Sin nombre";
+    private static final double SUELDO_MINIMO = 350;
+    private static final String NOMBRE_POR_DEFECTO
+            = "Sin nombre";
 
     public Empleado(String nombre, double sueldoBase){
         setNombre(nombre);
@@ -22,10 +23,10 @@ public class Empleado {
     }
 
     public double getSueldoBase() {
-        if (sueldoBase > 0){
+        if (sueldoBase < 0){
+            System.out.println("Alerta: Sueldo negativo detectado: " + sueldoBase +
+                                " Asignar el minimo sueldo $" + SUELDO_MINIMO);
             this.sueldoBase = SUELDO_MINIMO;
-            System.out.println("Alerta: Sueldo negativo detectado. " +
-                                "Sasigna el minimo sueldo $" + SUELDO_MINIMO);
         }
         return sueldoBase;
     }
@@ -45,6 +46,6 @@ public class Empleado {
     @Override
     public String toString() {
         return "Nombre = " + getNombre() + '\n' +
-                "SueldoBase = " + getSueldoBase();
+                "SueldoBase = $" + getSueldoBase();
     }
 }
