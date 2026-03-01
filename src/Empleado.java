@@ -3,8 +3,7 @@ public class Empleado {
     private double sueldoBase;
 
     private static final double SUELDO_MINIMO = 350;
-    private static final String NOMBRE_POR_DEFECTO
-            = "Sin nombre";
+    private static final String NOMBRE_POR_DEFECTO = "Sin nombre";
 
     public Empleado(String nombre, double sueldoBase){
         setNombre(nombre);
