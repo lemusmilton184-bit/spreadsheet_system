@@ -4,14 +4,16 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
+    static Empleado[] listaEmpleado = new Empleado[4];
+    static int contador = 0;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Empleado[] listaEmpleado = new Empleado[4];
 
         boolean salir = false;
 
-        int contador = 0;
 
         while (!salir && contador < 5){
             System.out.println("=== Donmina Simple ===");
@@ -27,18 +29,20 @@ public class Main {
             scanner.nextLine();
 
             double sueldo = 0;
-            if (opcion > 0) {
-               String nombre = Utils.pedirNombreValido(scanner);
-                if (opcion == 4)
-                    System.out.println("Ponga el valor de su hora: ");
-                else {
-                    sueldo = Utils.pedirNumeroValido(scanner);
-                }
+            if (opcion > 0 && opcion <= 5){
+                String nombre = "";
+               if (opcion != 5){
+                   nombre = Utils.pedirNombreValido(scanner);
+                   if (opcion == 4)
+                       System.out.println("Ponga el valor de su hora: ");
+                   else {
+                       sueldo = Utils.pedirNumeroValido(scanner);
+                   }
+               }
 
                 switch (opcion) {
                     case 1:
-                        listaEmpleado[contador] = new Empleado(nombre, sueldo);
-                        contador++;
+                        contratar(new Empleado(nombre, sueldo));
                         break;
                     case 2:
                         System.out.println("Inglese el bono del gerente: ");
@@ -59,7 +63,7 @@ public class Main {
                         listaEmpleado[contador] = new Freelancer(nombre, horasTrabajadas, valorHora);
                         contador++;
                         break;
-                    case 5 :
+                    case 5:
                         System.out.println("=== Datos de empleados ===");
 
                         double totalnomina = 0;
@@ -67,7 +71,6 @@ public class Main {
                         for (int i = 0; i < contador; i++) {
                             System.out.println(listaEmpleado[i].toString());
                             System.out.println("-----------------------------------");
-
                             totalnomina += listaEmpleado[i].obtenerSueldo();
                         }
 
@@ -78,11 +81,35 @@ public class Main {
                         System.out.println("Opcion mal!!");
                         break;
                 }
+
             }else{
                 System.out.println("finalizacion programa.");
                 salir = true;
             }
 
         }
+    }
+
+    public static void contratar(Empleado nuevoEmpleado){
+
+        if (contador < listaEmpleado.length){
+            listaEmpleado[contador] = nuevoEmpleado;
+
+            contador++;
+
+            double bono;
+            double ventas;
+            double horasTrabajadas;
+            double totalnomina = 0;
+            String nombre = "";
+
+            listaEmpleado[contador] = new Gerente(nombre, sueldo, bono);
+
+            System.out.println("Contratado: " + nuevoEmpleado.getNombre());
+        }else{
+            System.out.println("Error no hay vacantes");
+        }
+
+
     }
 }
