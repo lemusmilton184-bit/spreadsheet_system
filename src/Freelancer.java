@@ -8,6 +8,11 @@ public class Freelancer extends Empleado {
         setValorHora(valorHora);
     }
 
+    @Override
+    public double obtenerSueldo(){
+        return horasTrabajadas * valorHora;
+    }
+
     public double getHorasTrabajadas() {
         return horasTrabajadas;
     }
